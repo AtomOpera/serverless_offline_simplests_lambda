@@ -1,0 +1,24 @@
+service: hello-world-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  profile: default
+  memorySize: 256 # optional, in MB, default is 1024
+  stage: dev
+
+plugins:
+  # - serverless-webpack
+  - serverless-bundle
+  - serverless-offline
+
+functions:
+  hello:
+    handler: handler.handler
+    name: "${self:service}-${self:provider.stage}" # optional, Deployed Lambda name
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
