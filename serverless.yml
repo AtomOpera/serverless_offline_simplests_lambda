@@ -19,6 +19,9 @@ functions:
     name: "${self:service}-${self:provider.stage}" # optional, Deployed Lambda name
     events:
       - http:
-          path: hello
+          path: /
           method: get
           cors: true
+custom:
+  serverless-offline:
+    host: 0.0.0.0
