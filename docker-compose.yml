@@ -1,0 +1,9 @@
+# File: ./docker-compose.yml
+version: '1.0'
+services:
+  my-lambda-service:
+    # Look for a Dockerfile at the the root
+    build: . # so no need for "image:""
+    container_name: lambda_container
+    ports:
+      - "3000:3000"

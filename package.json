@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "sls offline start",
-    "dev": "SET SLS_DEBUG=* && sls offline start",
+    "devWin": "SET SLS_DEBUG=* && sls offline start",
+    "devLin": "export SLS_DEBUG=* && sls offline start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

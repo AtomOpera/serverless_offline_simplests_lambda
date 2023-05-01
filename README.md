@@ -19,3 +19,15 @@ docker run -itd --rm --name lambda_container -p 3000:3000 lambda_img
 to stop container:
 
 docker container stop lambda_container
+
+## With docker compose
+
+simply run
+
+docker-compose build
+
+docker-compose up
+
+OR
+
+docker-compose up -d --build
