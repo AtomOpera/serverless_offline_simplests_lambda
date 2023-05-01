@@ -1,17 +1,17 @@
 service: hello-world-offline
 
+plugins:
+  - serverless-webpack
+  # - serverless-bundle
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs14.x
   region: eu-west-1
-  profile: default
-  memorySize: 256 # optional, in MB, default is 1024
   stage: dev
-
-plugins:
-  # - serverless-webpack
-  - serverless-bundle
-  - serverless-offline
+  # profile: default
+  # memorySize: 256 # optional, in MB, default is 1024
 
 functions:
   hello:
@@ -22,6 +22,12 @@ functions:
           path: /
           method: get
           cors: true
+
 custom:
   serverless-offline:
     host: 0.0.0.0
+
+  webpack:
+    webpackConfig: ./webpack.local.js
+    includeModules: false
+    packager: "yarn"
