@@ -2,7 +2,7 @@ service: hello-world-offline
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   region: eu-west-1
   profile: default
   memorySize: 256 # optional, in MB, default is 1024
