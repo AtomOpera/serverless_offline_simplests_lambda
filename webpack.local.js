@@ -1,28 +1,17 @@
 const path = require('path');
 const slsw = require('serverless-webpack');
 
+console.log(slsw.lib.entries)
 module.exports = {
-  // entry: { handler: './handler.js' },
-  entry: slsw.lib.entries,
+  entry: { handler: './handler.js' },
+  // entry: slsw.lib.entries,
   target: 'node',
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
-    // filename: 'handler.js'
+    // filename: '[name].js'
+    filename: 'handler.js'
   },
-  resolve: {
-    extensions: [".js", ".jsx", ".json", ".ts", ".tsx", ".html"]
-  },
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.(js|jsx|ts|tsx)$/,
-  //       exclude: /node_modules/,
-  //       loader: 'babel-loader',
-  //     },
-  //   ],
-  // },
   module: {
     rules: [
       {
@@ -33,6 +22,18 @@ module.exports = {
       },
     ],
   },
+  // resolve: {
+  //   extensions: [".js", ".jsx", ".json", ".ts", ".tsx", ".html"]
+  // },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.(js|jsx|ts|tsx)$/,
+  //       exclude: /node_modules/,
+  //       loader: 'babel-loader',
+  //     },
+  //   ],
+  // },
 
   // Default mode for Webpack is production.
   // Depending on mode Webpack will apply different things
